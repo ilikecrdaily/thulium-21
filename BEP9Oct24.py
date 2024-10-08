@@ -31,18 +31,7 @@ X_1_star = X_1/L
 """Other params"""
 no_of_points = 10001
 
-"""Our model used to obtain the equilibrium"""
-def get_u(X):
-    if X < X_1:
-        return (-A*X*g*(A*((1/12 + (X_1_star**2 - 3/2*X_1_star + 1/2)*c**2 + 
-                            (X_1_star - 1)**2*c/2)*L**2 + ((-1/2 + c*(X_1_star - 1))*X*L)/2 + X**2/6)
-                        *g*rho*cos(phi)**2 - T_0**2*sin(phi)*L*c*(X_1_star - 1)/(A*E))*rho)/T_0**2
-    else:
-        return (-A*g*rho*(X - L)*(A*g*rho*cos(phi)**2* (((c + 1/2)*X_1_star - c/2 - 1/2)*c*X_1_star*L**2 
-                                                        + ((c*X_1_star - 1/6)*X*L)/2 + X**2/6) 
-                                  - L*sin(phi)*T_0**2*X_1_star*c/(A*E)))/T_0**2
-    
-
+"""Our model (Cable-TMD model) used to obtain the equilibrium"""
 def get_v(x):
     X = 200 * (1-x)
     if X < X_1:
